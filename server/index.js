@@ -11,6 +11,10 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 module.exports = app;
 
+const runClarifai = require('./clarifai');
+
+//runClarifai();
+
 if (process.env.NODE_ENV === 'development')
   require('../secrets');
 

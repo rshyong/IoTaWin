@@ -31,4 +31,3 @@ module.exports = router
   .get('/me', (req, res, next) => {
     res.json(req.user);
   })
-  .use('/google', require('./google'));
