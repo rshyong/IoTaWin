@@ -1,0 +1,22 @@
+{
+  "name": "iotawin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rshyong/IoTaWin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rshyong/IoTaWin/issues"
+  },
+  "homepage": "https://github.com/rshyong/IoTaWin#readme",
+  "dependencies": {
+    "clarifai": "^2.1.4-dev"
+  }
+}
