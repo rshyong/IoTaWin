@@ -11,16 +11,6 @@ import Dashboard from './components/Dashboard'
 import Store from './components/Store'
 import { me } from './reducer/user';
 
-//const whoAmI = store.dispatch(me());
-
-// const requireLogin = (nextRouterState, replace, next) =>
-//   whoAmI
-//     .then(() => {
-//       const { user } = store.getState();
-//       if (!user.id) replace('/login');
-//       next();
-//     })
-//     .catch(err => console.log(err));
 
 ReactDOM.render(
   <Provider store={store}>

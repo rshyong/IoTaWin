@@ -1,6 +1,62 @@
 import React from 'react';
 import { browserHistory, Link } from 'react-router';
 
+
+let stores = [
+  {
+    img: 'http://s3.amazonaws.com/movotoblog/2013/06/NYC/images/7.jpg',
+    pic1: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/1.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic2: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/2.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic3: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/3.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic4: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/4.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    name: 'Grocery Store',
+    address: '123 Grocery Store Lane',
+    score: 92,
+    date: 'February 19, 2017',
+    avatar: 'http://gooava.com/down.php?id=592',
+    aName: 'Homer'
+  },
+  {
+    img: 'https://spoilednyc.com/wp-content/uploads/2015/08/07/final-2719.jpg',
+    pic1: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/5.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic2: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/6.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic3: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/7.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic4: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/8.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    name: 'Asian Mart',
+    address: '123 Asian Mart Lane',
+    score: 89,
+    date: 'February 27, 2017',
+    avatar: 'http://www.avatarsdb.com/avatars/say_cheese.jpg',
+    aName: 'SpongeBob'
+  },
+  {
+    img: 'http://www.sharpshopper.net/Images/Ephrata/Ephrata-Storefront-b.jpg',
+    pic1: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/26.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic2: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/31.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic3: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/36.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic4: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/41.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    name: 'Sharp Shopper',
+    address: '123 Sharp Shopper Lane',
+    score: 95,
+    date: 'March 5, 2017',
+    avatar: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSFepwq3Zf8i8DboMEwltDKXsqnNXEj8EUvGkEOuC4VhEzWVbRr2w',
+    aName: 'Edward Cullen'
+  },
+  {
+    img: 'https://s3-media2.fl.yelpcdn.com/bphoto/h2Wy1xZtHPjcK6OCTROlAg/o.jpg',
+    pic1: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/4.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic2: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/1.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic3: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/2.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic4: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/3.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    name: 'ABinBev',
+    address: '119 W 24th Street',
+    score: 79,
+    date: 'March 26, 2017',
+    avatar: 'http://www.avatarsdb.com/avatars/panda_kiss.gif',
+    aName: 'RandomPanda'
+  }
+]
+
 class Dashboard extends React.Component {
 
   constructor(props) {
@@ -37,9 +93,7 @@ class Dashboard extends React.Component {
               <div className="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
                 <div className="row">
                   <div className="column">
-                    {!this.state.headerPhoto ?
-                    <Link to='/store/1'><img id="head-photo" onMouseOver={this.enterPhoto} className="thumbnail" src="http://s3.amazonaws.com/movotoblog/2013/06/NYC/images/7.jpg" /></Link>
-                    : <Link to='/store/1'><img id="head-photo" className="thumbnail" onMouseOut={this.exitPhoto} src="http://s3.amazonaws.com/movotoblog/2013/06/NYC/images/7.jpg" /></Link>}
+                    <Link to='/store/1'><img id="head-photo" className="thumbnail" src="http://s3.amazonaws.com/movotoblog/2013/06/NYC/images/7.jpg" /></Link>
                     <h5>Alert</h5>
                     <p>This store has been flagged and needs attention.</p>
                   </div>
@@ -59,7 +113,7 @@ class Dashboard extends React.Component {
                 </div>
                 <div className="row small-up-2 medium-up-3 large-up-4">
                   <div className="column">
-                    <Link to='/store/2'><img className="thumbnail" src="https://spoilednyc.com/wp-content/uploads/2015/08/07/final-2719.jpg"  /></Link>
+                    <Link to='/store/2'><img className="thumbnail" src="https://spoilednyc.com/wp-content/uploads/2015/08/07/final-2719.jpg" /></Link>
                       <ul>
                         <li>Compliance Level: 46</li>
                         <li>Location: New York</li>

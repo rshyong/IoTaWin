@@ -1,24 +1,22 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 
-const GET_USER = 'GET_USER';
-const REMOVE_USER = 'REMOVE_USER';
-const FETCH_PHOTOS = 'FETCH_PHOTOS';
-
-const defaultUser = {};
+const GET_STORE_DATA = 'GET_STORE_DATA';
 
 const getUser = user => ({ type: GET_USER, user });
 const removeUser = () => ({ type: REMOVE_USER });
-const fetchPhotos = () => ({ type: FETCH_PHOTOS });
+const getStoreData = (data) => ({ type: GET_STORE_DATA, data: data });
 
-export const getData = () =>  {
-return dispatch => {
-  firebase.database().ref().orderByChild('didFetch').equalTo(false).on('child_added', function(child){
-    const data = child.val();
-    console.log(data);
-  })
-}
-}
+export const getData = () => {
+  return dispatch => firebase.database().ref().orderByChild('didFetch').equalTo(false)
+  .on('child_added', function(child) {
+      const data = child.val();
+    }).then(function (data) {
+      dispatch(getStoreData(data))
+    }).then(function (){
+      console.log("Success")
+    })
+  }
 
 export const me = () =>
   dispatch =>
@@ -45,12 +43,10 @@ export const logout = () =>
       })
       .catch(err => console.log(err));
 
-export default function (state = defaultUser, action) {
+export default function (state = {}, action) {
   switch (action.type) {
-    case GET_USER:
-      return action.user;
-    case REMOVE_USER:
-      return defaultUser;
+    case GET_STORE_DATA:
+      return action.data
     default:
       return state;
   }

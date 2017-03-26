@@ -6,7 +6,7 @@ import { getData } from '../reducer/user.js'
 
 let stores = [
   {
-    img: 'http://www.elcivics.com/images/esl-grocery-store-lesson.jpg',
+    img: 'http://s3.amazonaws.com/movotoblog/2013/06/NYC/images/7.jpg',
     pic1: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/1.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
     pic2: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/2.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
     pic3: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/3.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
@@ -19,7 +19,7 @@ let stores = [
     aName: 'Homer'
   },
   {
-    img: 'https://www.maangchi.com/wp-content/uploads/2010/04/storefront-590x442.jpg',
+    img: 'https://spoilednyc.com/wp-content/uploads/2015/08/07/final-2719.jpg',
     pic1: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/5.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
     pic2: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/6.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
     pic3: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/7.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
@@ -45,29 +45,35 @@ let stores = [
     aName: 'Edward Cullen'
   },
   {
-    img: 'http://c8.alamy.com/comp/C4BR8X/st-saint-augustine-florida-publix-grocery-store-supermarket-food-entrance-C4BR8X.jpg',
-    pic1: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/45.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
-    pic2: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/1.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
-    pic3: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/2.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
-    pic4: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/3.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
-    name: 'Publix',
-    address: '123 Publix Lane',
-    score: 88,
-    date: 'March 11, 2017',
+    img: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/44.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic1: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/40.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic2: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/41.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic3: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/42.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    pic4: 'https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/43.jpg?alt=media&token=03243409-0940-4efb-81d2-5eee7629e0ba',
+    name: 'ABinBev',
+    address: '119 W 24th Street',
+    score: 79,
+    date: 'March 26, 2017',
     avatar: 'http://www.avatarsdb.com/avatars/panda_kiss.gif',
     aName: 'RandomPanda'
   }
 ]
+
 class Store extends React.Component {
 
   constructor(props) {
     super(props);
-    const theStore = stores[props.routeParams.id - 1];
+    const theStore = stores[+props.routeParams.id - 1];
     let color;
     if (theStore.score < 45) color = 'red';
     else if (theStore.score < 75) color = 'yellow';
     else color = 'green';
-    this.state = {store: theStore, img: theStore.img, color: color};
+    this.state = {
+      store: theStore,
+      img: theStore.img, 
+      color,
+      storeData: {}
+    };
     this.changePic = this.changePic.bind(this);
   }
 
@@ -75,7 +81,8 @@ class Store extends React.Component {
     $(document).foundation();
   }
   componentDidMount() {
-    this.props.getData();
+    const data = this.props.getData();
+    this.setState({storeData: data});
   }
 
   changePic(pic) {
@@ -84,6 +91,9 @@ class Store extends React.Component {
 
   render() {
     let store = this.state.store;
+    if (this.state.storeData) {
+      console.log("this.storeData is ", this.state.storeData);
+    }
     return (
       <div>
           <div className="top-bar">
@@ -123,6 +133,15 @@ class Store extends React.Component {
               <p><b>Address:</b> {store.address}</p>
               <p><b>Date of Last Inspection:</b> {store.date}</p>
               <p><b>Compliance Score:</b> {store.score}</p>
+              <p><b>Offenses Logged:</b></p>
+              <ul>
+                <li>Type of Offense: Messy </li>
+                <li>Date Occurred: 3/26/2017</li>
+                <li>Type of Offense: Unstocked </li>
+                <li>Date Occurred: 3/14/2017</li>
+                <li>Type of Offense: Wrong Placement </li>
+                <li>Date Occurred: 3/12/2017</li>
+              </ul>
               <CircularProgressbar
                   percentage={store.score}
                   strokeWidth={7}
@@ -173,11 +192,13 @@ class Store extends React.Component {
           </div>
         </div>
           )
-        }
       }
+    }
       
 function mapStateToProps(state) {
-  return {};
+  return {
+    storeData: state.storeData
+  };
 }
 
 function mapDispatchToProps(dispatch) {
