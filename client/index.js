@@ -7,6 +7,7 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import store from './store';
 import { Main, Login, Signup, UserHome } from './components';
 import TakePicture from './components/TakePicture';
+import Dashboard from './components/Dashboard'
 import { me } from './reducer/user';
 
 //const whoAmI = store.dispatch(me());
@@ -26,6 +27,7 @@ ReactDOM.render(
       <Route path="/" component={TakePicture}>
         <Route path="photo" component={TakePicture} />
       </Route>
+      <Route path="dashboard" component={Dashboard} />
     </Router>
   </Provider>,
   document.getElementById('app')
