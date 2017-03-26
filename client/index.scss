@@ -20,4 +20,19 @@ body {
   }
 }
 
-
+img.thumbnail {
+  display: block;
+  max-width: 200px !important;
+  max-height: 100px !important;
+  width: auto;
+  height: auto;
+}
+#head-photo {
+  margin-top: 5px;
+}
+ul {
+  list-style: none;
+  li {
+    margin-left: 4px;
+  }
+}
