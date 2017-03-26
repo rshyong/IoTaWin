@@ -1,13 +1,21 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 
 class Dashboard extends React.Component {
-  
+
   constructor(props) {
     super(props);
+    this.enterSite = this.enterSite.bind(this);
   }
+
+  enterSite(id) {
+    browserHistory.push(`/store/${id}`);
+  }
+
   componentWillMount() {
       $(document).foundation();
   }
+
   render() {
     return (
       <div>
@@ -37,19 +45,19 @@ class Dashboard extends React.Component {
                 </div>
                 <div className="row small-up-2 medium-up-3 large-up-4">
                   <div className="column">
-                    <img className="thumbnail" src="http://placehold.it/550x550" />
+                    <img className="thumbnail" src="http://placehold.it/550x550" onClick={() => this.enterSite(1)}/>
                     <h5>My Site</h5>
                   </div>
                   <div className="column">
-                    <img className="thumbnail" src="http://placehold.it/550x550" />
+                    <img className="thumbnail" src="http://placehold.it/550x550" onClick={() => this.enterSite(2)}/>
                     <h5>My Site</h5>
                   </div>
                   <div className="column">
-                    <img className="thumbnail" src="http://placehold.it/550x550" />
+                    <img className="thumbnail" src="http://placehold.it/550x550" onClick={() => this.enterSite(3)}/>
                     <h5>My Site</h5>
                   </div>
                   <div className="column">
-                    <img className="thumbnail" src="http://placehold.it/550x550" />
+                    <img className="thumbnail" src="http://placehold.it/550x550" onClick={() => this.enterSite(4)}/>
                     <h5>My Site</h5>
                   </div>
                   <div className="column">
