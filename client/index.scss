@@ -27,6 +27,12 @@ img.thumbnail {
   width: auto;
   height: auto;
 }
+
+img.main {
+  max-width: 870px !important;
+  max-height: 435px !important;
+}
+
 #head-photo {
   margin-top: 5px;
 }
@@ -36,3 +42,38 @@ ul {
     margin-left: 4px;
   }
 }
+
+.CircularProgressbar {
+  max-width: 30vh;
+  max-height: auto;
+  margin-top: 10%;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+  stroke-linecap: round;
+}
+
+.score-green {
+  stroke: green;
+}
+
+.score-yellow {
+  stroke: yellow;
+}
+
+.score-red {
+  stroke: red;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: lightgrey;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: black;
+  stroke: white;
+  font-size: 4vh;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+

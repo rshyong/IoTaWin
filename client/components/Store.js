@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import CircularProgressbar from 'react-circular-progressbar';
 
 let stores = [
   {
@@ -59,7 +60,12 @@ class Store extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {store: stores[props.routeParams.id - 1], img: stores[props.routeParams.id - 1].img};
+    const theStore = stores[props.routeParams.id - 1];
+    let color;
+    if (theStore.score < 45) color = 'red';
+    else if (theStore.score < 75) color = 'yellow';
+    else color = 'green';
+    this.state = {store: theStore, img: theStore.img, color: color};
     this.changePic = this.changePic.bind(this);
   }
 
@@ -82,7 +88,7 @@ class Store extends React.Component {
           <div className="top-bar">
             <div className="row">
               <div className="top-bar-left">
-                <Link to='/dashboard' style={{'font-size': '1.5vw'}}> {'Back to Dashboard' }</Link>
+                <Link to='/dashboard' style={{'fontSize': '1.5vw'}}> {'Back to Dashboard' }</Link>
               </div>
               <div className="top-bar-right">
                 <ul className="menu">
@@ -95,7 +101,7 @@ class Store extends React.Component {
 
           <div className="row">
             <div className="medium-6 columns">
-              <img className="thumbnail" src={store.img} />
+              <img className="thumbnail main" src={store.img} />
               <div className="row small-up-4">
                 <div className="column">
                   <img className="thumbnail" src={store.pic1} onClick={() => this.changePic("pic1")}/>
@@ -112,10 +118,16 @@ class Store extends React.Component {
               </div>
             </div>
             <div className="medium-6 large-5 columns">
-              <h3>{store.name}</h3>
+              <h3 style={{marginBottom: "5%"}}>{store.name}</h3>
               <p><b>Address:</b> {store.address}</p>
-              <p><b>Compliance Score:</b> {store.score}</p>
               <p><b>Date of Last Inspection:</b> {store.date}</p>
+              <p><b>Compliance Score:</b> {store.score}</p>
+              <CircularProgressbar
+                  percentage={store.score}
+                  strokeWidth={7}
+                  textForPercentage={() => store.score}
+                  classForPercentage={() => `score-${this.state.color}`}
+              />
               </div>
           </div>
 

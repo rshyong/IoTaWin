@@ -1,5 +1,5 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 
 class Dashboard extends React.Component {
 
@@ -16,31 +16,33 @@ class Dashboard extends React.Component {
   enterSite(id) {
     browserHistory.push(`/store/${id}`);
   }
-  
+
   componentWillMount() {
       $(document).foundation();
   }
-  
-  enterPhoto () {
+
+  enterPhoto() {
     this.setState({headerPhoto: true})
   }
-  
-  exitPhoto () {
+
+  exitPhoto() {
     this.setState({headerPhoto: false})
   }
-  
+
   render() {
     return (
       <div>
           <div className="off-canvas-wrapper">
             <div className="off-canvas-wrapper-inner" data-off-canvas-wrapper>
               <div className="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
-                <div className="row column">
-                  {this.state.headerPhoto ? 
-                  <img id="head-photo" onMouseOver={this.enterPhoto} className="thumbnail" src="http://s3.amazonaws.com/movotoblog/2013/06/NYC/images/7.jpg" onClick={() => this.enterSite(1)}  /> 
-                  : <img id="head-photo" className="thumbnail" onMouseOut={this.exitPhoto} src="http://s3.amazonaws.com/movotoblog/2013/06/NYC/images/7.jpg" /> }
-                  <h5>Alert</h5>
-                  <p>This store has been flagged and needs attention.</p>
+                <div className="row">
+                  <div className="column">
+                    {this.state.headerPhoto ?
+                    <Link to='/store/1'><img id="head-photo" onMouseOver={this.enterPhoto} className="thumbnail" src="http://s3.amazonaws.com/movotoblog/2013/06/NYC/images/7.jpg" /></Link>
+                    : <Link to='/store/1'><img id="head-photo" className="thumbnail" onMouseOut={this.exitPhoto} src="http://s3.amazonaws.com/movotoblog/2013/06/NYC/images/7.jpg" /></Link>}
+                    <h5>Alert</h5>
+                    <p>This store has been flagged and needs attention.</p>
+                  </div>
                 </div>
               </div>
               <div className="off-canvas-content" data-off-canvas-content>
@@ -57,7 +59,7 @@ class Dashboard extends React.Component {
                 </div>
                 <div className="row small-up-2 medium-up-3 large-up-4">
                   <div className="column">
-                    <img className="thumbnail" src="https://spoilednyc.com/wp-content/uploads/2015/08/07/final-2719.jpg" onClick={() => this.enterSite(2)}  />
+                    <Link to='/store/2'><img className="thumbnail" src="https://spoilednyc.com/wp-content/uploads/2015/08/07/final-2719.jpg"  /></Link>
                       <ul>
                         <li>Compliance Level: 46</li>
                         <li>Location: New York</li>
@@ -65,7 +67,7 @@ class Dashboard extends React.Component {
                       </ul>
                   </div>
                   <div className="column">
-                    <img className="thumbnail" src="http://static1.squarespace.com/static/5252fdf4e4b021f1cd53aadf/t/52ce0e3ce4b00d13b8f22253/1389235774891/Brooklyn+Bodega,+Williamsburg,+Brooklyn.jpg?format=1000w" onClick={() => this.enterSite(3)} />
+                    <Link to='/store/3'><img className="thumbnail" src="http://static1.squarespace.com/static/5252fdf4e4b021f1cd53aadf/t/52ce0e3ce4b00d13b8f22253/1389235774891/Brooklyn+Bodega,+Williamsburg,+Brooklyn.jpg?format=1000w"/></Link>
                       <ul>
                         <li>Compliance Level: 60</li>
                         <li>Location: New York</li>
@@ -73,7 +75,7 @@ class Dashboard extends React.Component {
                       </ul>
                   </div>
                   <div className="column">
-                    <img className="thumbnail" src="https://s3-media2.fl.yelpcdn.com/bphoto/h2Wy1xZtHPjcK6OCTROlAg/o.jpg" onClick={() => this.enterSite(4)} />
+                    <Link to='/store/4'><img className="thumbnail" src="https://s3-media2.fl.yelpcdn.com/bphoto/h2Wy1xZtHPjcK6OCTROlAg/o.jpg" /></Link>
                         <ul>
                           <li>Compliance Level: 79</li>
                           <li>Location: New York</li>
