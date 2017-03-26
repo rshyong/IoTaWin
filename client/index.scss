@@ -20,6 +20,10 @@ body {
   }
 }
 
+.off-canvas {
+  z-index: 0;
+}
+
 img.thumbnail {
   display: block;
   max-width: 200px !important;

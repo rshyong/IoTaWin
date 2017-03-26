@@ -74,11 +74,7 @@ class Store extends React.Component {
   }
 
   changePic(pic) {
-    const picUrl = this.state.store[pic];
-    const storeCopy = Object.assign({}, this.state.store);
-    storeCopy[pic] = storeCopy.img;
-    storeCopy.img = picUrl;
-    this.setState({store: storeCopy});
+    this.setState({img: this.state.store[pic]});
   }
 
   render() {
@@ -101,8 +97,11 @@ class Store extends React.Component {
 
           <div className="row">
             <div className="medium-6 columns">
-              <img className="thumbnail main" src={store.img} />
+              <img className="thumbnail main" src={this.state.img} />
               <div className="row small-up-4">
+                <div className="column">
+                  <img className="thumbnail" src={store.img} onClick={() => this.changePic("img")}/>
+                </div>
                 <div className="column">
                   <img className="thumbnail" src={store.pic1} onClick={() => this.changePic("pic1")}/>
                 </div>
@@ -111,9 +110,6 @@ class Store extends React.Component {
                 </div>
                 <div className="column">
                   <img className="thumbnail" src={store.pic3} onClick={() => this.changePic("pic3")}/>
-                </div>
-                <div className="column">
-                  <img className="thumbnail" src={store.pic4} onClick={() => this.changePic("pic4")}/>
                 </div>
               </div>
             </div>

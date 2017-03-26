@@ -37,7 +37,7 @@ class Dashboard extends React.Component {
               <div className="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
                 <div className="row">
                   <div className="column">
-                    {this.state.headerPhoto ?
+                    {!this.state.headerPhoto ?
                     <Link to='/store/1'><img id="head-photo" onMouseOver={this.enterPhoto} className="thumbnail" src="http://s3.amazonaws.com/movotoblog/2013/06/NYC/images/7.jpg" /></Link>
                     : <Link to='/store/1'><img id="head-photo" className="thumbnail" onMouseOut={this.exitPhoto} src="http://s3.amazonaws.com/movotoblog/2013/06/NYC/images/7.jpg" /></Link>}
                     <h5>Alert</h5>
