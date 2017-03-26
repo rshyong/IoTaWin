@@ -8,6 +8,7 @@ import store from './store';
 import { Main, Login, Signup, UserHome } from './components';
 import TakePicture from './components/TakePicture';
 import Dashboard from './components/Dashboard'
+import Store from './components/Store'
 import { me } from './reducer/user';
 
 //const whoAmI = store.dispatch(me());
@@ -28,6 +29,7 @@ ReactDOM.render(
         <Route path="photo" component={TakePicture} />
       </Route>
       <Route path="dashboard" component={Dashboard} />
+      <Route path="store" component={Store} />
     </Router>
   </Provider>,
   document.getElementById('app')

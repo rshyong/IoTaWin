@@ -5,7 +5,6 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props);
   }
-  
   componentWillMount() {
       $(document).foundation();
   }
@@ -17,10 +16,9 @@ class Dashboard extends React.Component {
 
               <div className="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
                 <div className="row column">
-                  
-                  <img className="thumbnail" src="http://placehold.it/550x350" />
-                  <h5>Mike Mikerson</h5>
-                  <p>Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. className aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie augue sit amet leo.</p>
+                  <img id="feat-photo" className="thumbnail" src="http://s3.amazonaws.com/movotoblog/2013/06/NYC/images/7.jpg" />
+                  <h5>Alert</h5>
+                  <p>This store has been flagged and needs attention.</p>
                 </div>
               </div>
 
