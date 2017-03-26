@@ -41,4 +41,31 @@ module.exports = () => {
     );
   })
 
+  // app.inputs.delete().then(
+  //   function(response) {
+  //     // do something with response
+  //   },
+  //   function(err) {
+  //     // there was an error
+  //   }
+  // );
+
+  // app.models.create(
+  //   "shelf",
+  //   [
+  //     { "id": "full" },
+  //     { "id": "organized" },
+  //     { "id": "compliant" }
+  //   ]
+  // ).then(
+  //   function(response) {
+  //     console.log('created')
+  //     // do something with response
+  //   },
+  //   function(err) {
+  //     // there was an error
+  //   }
+  // );
+
+
 }

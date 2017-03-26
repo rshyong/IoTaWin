@@ -21,7 +21,7 @@ class TakePicture extends React.Component {
       holdingURL: '',
       imgURL: '',
       error: '',
-      count: 101
+      count: 1
     };
 
     this.database = firebase.database();
@@ -35,12 +35,6 @@ class TakePicture extends React.Component {
       {id: e.target.cbox1.value, value: e.target.cbox1.checked},
       {id: e.target.cbox2.value, value: e.target.cbox2.checked},
       {id: e.target.cbox3.value, value: e.target.cbox3.checked},
-      {id: e.target.cbox4.value, value: e.target.cbox4.checked},
-      {id: e.target.cbox5.value, value: e.target.cbox5.checked},
-      {id: e.target.cbox6.value, value: e.target.cbox6.checked},
-      {id: e.target.cbox7.value, value: e.target.cbox7.checked},
-      {id: e.target.cbox8.value, value: e.target.cbox8.checked},
-      {id: e.target.cbox9.value, value: e.target.cbox9.checked},
     ];
 
     console.log(this.state.imgURL);
@@ -52,7 +46,7 @@ class TakePicture extends React.Component {
     }).then(
     function(response) {
         console.log(response);
-        app.models.train("fridge").then(
+        app.models.train("shelf").then(
           function(res) {
               console.log(res);
           },
@@ -164,24 +158,12 @@ class TakePicture extends React.Component {
                 accept="image/*"
                 onChange={this.handleImgUpload} />
             <br/>
-            <label htmlFor="cbox1" style={inline}>stella artois</label>
-            <input type="checkbox" id="cbox1" value="stella artois" style={styling} /><br/><br/><br/>
-            <label htmlFor="cbox2" style={inline}>apocalypse ipa</label>
-            <input type="checkbox" id="cbox2" value="apocalypse ipa" style={styling} /><br/><br/><br/>
-            <label htmlFor="cbox3" style={inline}>virtue</label>
-            <input type="checkbox" id="cbox3" value="virtue" style={styling} /><br/><br/><br/>
-            <label htmlFor="cbox4" style={inline}>hoegaarden</label>
-            <input type="checkbox" id="cbox4" value="hoegaarden" style={styling} /><br/><br/><br/>
-            <label htmlFor="cbox5" style={inline}>shock top</label>
-            <input type="checkbox" id="cbox5" value="shock top" style={styling} /><br/><br/><br/>
-            <label htmlFor="cbox6" style={inline}>elysian</label>
-            <input type="checkbox" id="cbox6" value="elysian" style={styling} /><br/><br/><br/>
-            <label htmlFor="cbox7" style={inline}>empty</label>
-            <input type="checkbox" id="cbox7" value="empty" style={styling} /><br/><br/><br/>
-            <label htmlFor="cbox8" style={inline}>compliant</label>
-            <input type="checkbox" id="cbox8" value="compliant" style={styling} /><br/><br/><br/>
-            <label htmlFor="cbox9" style={inline}>organized</label>
-            <input type="checkbox" id="cbox9" value="organized" style={styling} /><br/><br/><br/>
+            <label htmlFor="cbox1" style={inline}>full</label>
+            <input type="checkbox" id="cbox1" value="full" style={styling} /><br/><br/><br/>
+            <label htmlFor="cbox2" style={inline}>compliant</label>
+            <input type="checkbox" id="cbox2" value="compliant" style={styling} /><br/><br/><br/>
+            <label htmlFor="cbox3" style={inline}>organized</label>
+            <input type="checkbox" id="cbox3" value="organized" style={styling} /><br/><br/><br/>
             <button type="submit">Submit</button>
           </form>
       </div>
