@@ -29,13 +29,15 @@ function uploadPic() {
 					if (err) {
 						console.error(err);
 					} else {
-						console.log("its up");
-					});
+						console.log("its up", file.name);
+						fs.unlink(pathToFileDirectory+theFilesArray[0]);
+					}
+				})
 			})
 	}
 
 
-
-	//setInterval(uploadPic, 1000);
+//uploadPic();
+setInterval(uploadPic, 10000);
 
 	//export default firebase.initializeApp(config);
