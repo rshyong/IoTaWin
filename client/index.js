@@ -25,9 +25,9 @@ import { me } from './reducer/user';
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={TakePicture}>
-        <Route path="photo" component={TakePicture} />
+      <Route path="/" component={Dashboard}>
       </Route>
+      <Route path="photo" component={TakePicture} />
       <Route path="dashboard" component={Dashboard} />
       <Route path="store" component={Store} />
       <Route path="store/:id" component={Store} />
