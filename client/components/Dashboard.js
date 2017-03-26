@@ -1,6 +1,8 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 
-class Dashboard extends React.Component {  
+class Dashboard extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -8,6 +10,11 @@ class Dashboard extends React.Component {
     }
     this.enterPhoto = this.enterPhoto.bind(this)
     this.exitPhoto = this.exitPhoto.bind(this)
+    this.enterSite = this.enterSite.bind(this);
+  }
+
+  enterSite(id) {
+    browserHistory.push(`/store/${id}`);
   }
   
   componentWillMount() {
@@ -64,6 +71,8 @@ class Dashboard extends React.Component {
                         <li>Location: New York</li>
                         <li>Last Checked: 2/30/2017</li>
                       </ul>
+                    <img className="thumbnail" src="http://placehold.it/550x550" onClick={() => this.enterSite(2)}/>
+                    <h5>My Site</h5>
                   </div>
                   <div className="column">
                     <img className="thumbnail" src="https://s3-media2.fl.yelpcdn.com/bphoto/h2Wy1xZtHPjcK6OCTROlAg/o.jpg" />

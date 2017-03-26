@@ -30,6 +30,7 @@ ReactDOM.render(
       </Route>
       <Route path="dashboard" component={Dashboard} />
       <Route path="store" component={Store} />
+      <Route path="store/:id" component={Store} />
     </Router>
   </Provider>,
   document.getElementById('app')
