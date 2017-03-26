@@ -31,6 +31,7 @@ module.exports = () => {
 
           data.concepts = conceptsObj;
           data.didCheck = true;
+          data.didFetch = false;
           firebase.database().ref(child.key).set(data)
           .then(() => console.log('Synchronization succeeded'))
           .catch(err => console.log(err));

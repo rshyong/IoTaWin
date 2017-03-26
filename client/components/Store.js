@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
 import CircularProgressbar from 'react-circular-progressbar';
+import { getData } from '../reducer/user.js'
 
 let stores = [
   {
@@ -71,6 +73,9 @@ class Store extends React.Component {
 
   componentWillMount() {
     $(document).foundation();
+  }
+  componentDidMount() {
+    this.props.getData();
   }
 
   changePic(pic) {
@@ -170,5 +175,17 @@ class Store extends React.Component {
           )
         }
       }
+      
+function mapStateToProps(state) {
+  return {};
+}
 
-export default Store;
+function mapDispatchToProps(dispatch) {
+  return {
+    getData: function() {
+      dispatch(getData())
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Store);
