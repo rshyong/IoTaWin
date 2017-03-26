@@ -3,11 +3,22 @@ import { browserHistory } from 'react-router';
 
 const GET_USER = 'GET_USER';
 const REMOVE_USER = 'REMOVE_USER';
+const FETCH_PHOTOS = 'FETCH_PHOTOS';
 
 const defaultUser = {};
 
 const getUser = user => ({ type: GET_USER, user });
 const removeUser = () => ({ type: REMOVE_USER });
+const fetchPhotos = () => ({ type: FETCH_PHOTOS });
+
+export const getData = () =>  {
+return dispatch => {
+  firebase.database().ref().orderByChild('didFetch').equalTo(false).on('child_added', function(child){
+    const data = child.val();
+    console.log(data);
+  })
+}
+}
 
 export const me = () =>
   dispatch =>
