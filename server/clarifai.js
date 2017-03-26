@@ -68,5 +68,16 @@ module.exports = () => {
   //   }
   // );
 
+  // app.models.predict("shelf", "https://firebasestorage.googleapis.com/v0/b/iotawin-9b07a.appspot.com/o/46.jpg?alt=media&token=2e18cbc3-cbbc-44ac-b643-15454d244b08").then(
+  //   function(response) {
+  //     console.log('predicting')
+  //     console.log(response.outputs[0].data)
+  //     // do something with response
+  //   },
+  //   function(err) {
+  //     // there was an error
+  //   }
+  // );
+
 
 }
