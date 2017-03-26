@@ -156,40 +156,6 @@ class Store extends React.Component {
                 </label>
                 <button className="button">Submit Note</button>
               </div>
-              <div className="tabs-panel" id="panel2">
-                <div className="row medium-up-3 large-up-5">
-                  <div className="column">
-                    <img className="thumbnail" src="http://placehold.it/350x200" />
-                    <h5>Other Product <small>$22</small></h5>
-                    <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
-                    <a href="#" className="button hollow tiny expanded">Buy Now</a>
-                  </div>
-                  <div className="column">
-                    <img className="thumbnail" src="http://placehold.it/350x200" />
-                    <h5>Other Product <small>$22</small></h5>
-                    <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
-                    <a href="#" className="button hollow tiny expanded">Buy Now</a>
-                  </div>
-                  <div className="column">
-                    <img className="thumbnail" src="http://placehold.it/350x200" />
-                    <h5>Other Product <small>$22</small></h5>
-                    <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
-                    <a href="#" className="button hollow tiny expanded">Buy Now</a>
-                  </div>
-                  <div className="column">
-                    <img className="thumbnail" src="http://placehold.it/350x200" />
-                    <h5>Other Product <small>$22</small></h5>
-                    <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
-                    <a href="#" className="button hollow tiny expanded">Buy Now</a>
-                  </div>
-                  <div className="column">
-                    <img className="thumbnail" src="http://placehold.it/350x200" />
-                    <h5>Other Product <small>$22</small></h5>
-                    <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
-                    <a href="#" className="button hollow tiny expanded">Buy Now</a>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
