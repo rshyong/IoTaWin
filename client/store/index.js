@@ -27,7 +27,7 @@ var storage = firebase.storage();
 // Create a storage reference from our storage service
 var storageRef = storage.ref();
 
-var imageRef = storageRef.child('45.jpg');
+// var imageRef = storageRef.child('2.jpg');
 
 // app.inputs.delete("c3e4f0a272614fde99dec8ba3db0ab5e").then(() => {
 //   console.log('deleted');
@@ -36,6 +36,16 @@ var imageRef = storageRef.child('45.jpg');
 //console.log(imageRef);
 
 // imageRef.getDownloadURL().then(url => {
+// // predict the contents of an image by passing in a url
+//   app.models.predict('shelf', url).then(
+//       function(response) {
+//           console.log(response.outputs[0].data);
+//       },
+//       function(err) {
+//           console.error(err);
+//       }
+//   );
+
 
 // app.inputs.create({
 //         url: url,
@@ -96,6 +106,60 @@ var imageRef = storageRef.child('45.jpg');
 
 
 // });
+
+
+
+// app.models.create(
+//     "shelf",
+//     [
+//       {
+//         id: "virtue"
+//       },
+//       {
+//         id: "hoegaarden"
+//       },
+//       {
+//         id: "shock top"
+//       },
+//       {
+//         id: "stella artois"
+//       },
+//       {
+//         id: "apocalypse ipa"
+//       },
+//       {
+//         id: "elysian"
+//       },
+//       {
+//         id: "compliant"
+//       },
+//       {
+//         id: "organized"
+//       },
+//       {
+//         id: "empty"
+//       }
+//     ]
+//     ).then(
+//     function(response) {
+//         console.log(response);
+//     },
+//     function(err) {
+//         console.log(err);
+//     }
+// );
+
+// app.models.train("shelf").then(
+//     function(response) {
+//         console.log(response);
+//     },
+//     function(err) {
+//         console.log(err);
+//     }
+// );
+
+
+
 
 
 // Create a reference from a Google Cloud Storage URI
